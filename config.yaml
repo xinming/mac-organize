@@ -1,0 +1,152 @@
+# organize configuration file
+# https://organize.readthedocs.io
+
+
+
+img_ext: &img
+  - png
+  - jpg
+  - jpeg
+  - tiff
+  - bmp
+  - gif
+  
+  
+videp_ext: &video
+  - mp4
+  - mov
+  - avi
+  - mkv
+
+audio_ext: &audio
+  - mp3
+  - wav
+  - ogg
+  - flac
+  - aac
+  - m4a
+
+
+msoffice_ext: &msoffice
+  - xlsx
+  - docx
+  - pptx
+
+
+rules:
+  - name: "Find PDFs"
+    locations:
+      - ~/Downloads
+    subfolders: false
+    filters:
+      - extension: pdf
+    actions:
+      - echo: "Found PDF!"
+      - move: ~/Downloads/_PDFs/
+  - name: "Find Images"
+    locations:
+      - ~/Downloads
+    subfolders: false
+    filters:
+      - extension:
+          - *img
+    actions:
+      - echo: "Found Images!"
+      - move: ~/Downloads/_Images/
+  - name: "Find Applications"
+    locations:
+      - ~/Downloads
+    subfolders: false
+    filters:
+      - extension:
+          - dmg
+          - pkg
+          - exe
+          - msi
+          - app
+    actions:
+      - echo: "Found DMGs!"
+      - move: ~/Downloads/_Applications/
+  - name: "Find Videos"
+    locations:
+      - ~/Downloads
+    subfolders: false
+    filters:
+      - extension:
+          - *video
+    actions:
+      - echo: "Found Videos!"
+      - move: ~/Downloads/_Videos/
+  - name: "Find Data"
+    locations:
+      - ~/Downloads
+    subfolders: false
+    filters:
+      - extension:
+          - json
+          - geojson
+          - csv
+          - tsv
+          - xml
+    actions:
+      - echo: "Found Data!"
+      - move: ~/Downloads/_Data/
+  - name: "Find spreadsheets"
+    locations:
+      - ~/Downloads
+    subfolders: false
+    filters:
+      - extension: 
+        - xlsx
+        - xls
+    actions:
+      - echo: "Found xlsx!"
+      - move: ~/Downloads/_SpreadSheets/
+  - name: "Find Docs"
+    locations:
+      - ~/Downloads
+    subfolders: false
+    filters:
+      - extension: 
+        - docx
+        - doc
+        - odt
+    actions:
+      - echo: "Found docx!"
+      - move: ~/Downloads/_WordDocuments/
+  - name: "Find Presentations"
+    locations:
+      - ~/Downloads
+    subfolders: false
+    filters:
+      - extension: 
+        - pptx
+        - ppt
+    actions:
+      - echo: "Found docx!"
+      - move: ~/Downloads/_Presentations/
+  - name: "Find Audio"
+    locations:
+      - ~/Downloads
+    subfolders: false
+    filters:
+      - extension:
+          - *audio
+    actions:
+      - echo: "Found Audio!"
+      - move: ~/Downloads/_Audio/
+  - name: "Find Zips"
+    locations:
+      - ~/Downloads
+    subfolders: false
+    filters:
+      - extension:
+          - zip
+          - rar
+          - 7z
+          - tar
+          - gz
+          - bz2
+    actions:
+      - echo: "Found Zips!"
+      - move: ~/Downloads/_Zips/
